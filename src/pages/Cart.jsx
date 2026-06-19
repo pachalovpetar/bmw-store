@@ -13,6 +13,8 @@ import {
 function Cart() {
   const items = useSelector((state) => state.cart.items);
 
+  const totalSum = items.reduce((sum, item) => sum + item.price, 0);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,7 +67,7 @@ const handleSubmit = (event) => {
           ))}
 
           <Typography variant="h5" sx={{ marginTop: 3, marginBottom: 2 }}>
-            Checkout
+            Total: €{totalSum.toFixed(2)}
           </Typography>
 
           <Box
