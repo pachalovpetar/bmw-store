@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "BMW X3 G01 Floor Mats",
+      "price": 107,
+      "description": "Original textile floor mats for BMW X3 G01."
+    },
+    {
+      "id": "2",
+      "name": "BMW M Performance Steering Wheel",
+      "price": 650,
+      "description": "Sport steering wheel with premium materials."
+    },
+    {
+      "id": "3",
+      "name": "BMW Roof Box",
+      "price": 890,
+      "description": "Original BMW roof storage box."
+    },
+    {
+      "id": "4",
+      "name": "BMW Wireless Charger",
+      "price": 120,
+      "description": "Wireless charging pad for BMW."
+    }
+  ],
+  "orders": [
+    {
+      "customer": {
+        "name": "petar pachalov",
+        "email": "ppachalov@abv.bg",
+        "address": "dobrudzha",
+        "phone": "0887174091"
+      },
+      "products": [
+        {
+          "id": "1",
+          "name": "BMW X3 G01 Floor Mats",
+          "price": 107,
+          "description": "Original textile floor mats for BMW X3 G01."
+        }
+      ],
+      "id": "bnkQ2RUoLEQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
