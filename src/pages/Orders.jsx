@@ -31,6 +31,10 @@ function Orders() {
           sx={{ marginBottom: 2 }}
         >
           <CardContent>
+            <Typography variant="h6" gutterBottom>
+              Order #{order.id}
+            </Typography>
+
             <Typography>
               Customer: {order.customer.name}
             </Typography>
@@ -39,8 +43,18 @@ function Orders() {
               Email: {order.customer.email}
             </Typography>
 
-            <Typography>
-              Products: {order.products.length}
+            <Typography sx={{ mt: 2, fontWeight: "bold" }}>
+              Products Ordered:
+            </Typography>
+
+            {order.products.map((product, index) => (
+              <Typography key={index}>
+                • {product.name}
+              </Typography>
+            ))}
+
+            <Typography sx={{ mt: 2 }}>
+              Total Items: {order.products.length}
             </Typography>
           </CardContent>
         </Card>
