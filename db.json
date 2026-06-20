@@ -45,6 +45,31 @@
         }
       ],
       "id": "bnkQ2RUoLEQ"
+    },
+    {
+      "customer": {
+        "name": "ivan",
+        "email": "ivan@abv.bg",
+        "address": "dobrudzha",
+        "phone": "0887171717"
+      },
+      "products": [
+        {
+          "id": "1",
+          "name": "BMW X3 G01 Floor Mats",
+          "price": 107,
+          "description": "Original all-weather rubber floor mats for BMW X3 G01.",
+          "image": "/images/mats.jpg"
+        },
+        {
+          "id": "2",
+          "name": "BMW M Performance Steering Wheel",
+          "price": 650,
+          "description": "Sport steering wheel with premium materials.",
+          "image": "/images/steering-wheel.jpg"
+        }
+      ],
+      "id": "Ayldhy35roc"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -68,7 +68,7 @@ function ProductDetails() {
             variant="contained"
             size="large"
             onClick={() => dispatch(addToCart(product))}
-          >
+            >
             Add To Cart
           </Button>
         </Box>
