@@ -26,6 +26,34 @@
       "price": 120,
       "description": "Wireless charging pad for BMW.",
       "image": "/images/charger.webp"
+    },
+    {
+      "id": "5",
+      "name": "BMW M Performance Pedal Set",
+      "price": 150,
+      "description": "Sporty pedal set for BMW M models.",
+      "image": "/images/pedals.jpg"
+    },
+    {
+      "id": "6",
+      "name": "BMW M Performance Shift Knob",
+      "price": 200,
+      "description": "Sporty shift knob for BMW M models.",
+      "image": "/images/shift-knob.png"
+    },
+    {
+      "id": "7",
+      "name": "BMW M Performance Exhaust System",
+      "price": 1200,
+      "description": "Sport exhaust system for BMW M models.",
+      "image": "/images/exhaust.webp"
+    },
+    {
+      "id": "8",
+      "name": "BMW M Performance Suspension Kit",
+      "price": 1500,
+      "description": "Sport suspension kit for BMW M models.",
+      "image": "/images/suspension-kit.jpg"
     }
   ],
   "orders": [
@@ -70,6 +98,24 @@
         }
       ],
       "id": "Ayldhy35roc"
+    },
+    {
+      "customer": {
+        "name": "gosho",
+        "email": "gosho@abv.bg",
+        "address": "dada",
+        "phone": "0887171717"
+      },
+      "products": [
+        {
+          "id": "1",
+          "name": "BMW X3 G01 Floor Mats",
+          "price": 107,
+          "description": "Original all-weather rubber floor mats for BMW X3 G01.",
+          "image": "/images/mats.jpg"
+        }
+      ],
+      "id": "9zh_4X8e1wA"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

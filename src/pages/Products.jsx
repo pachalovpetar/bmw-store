@@ -9,12 +9,12 @@ import {
   CardMedia,
   Typography,
   Button,
-  Grid,
   Box,
 } from "@mui/material";
 
 function Products() {
   const [products, setProducts] = useState([]);
+  const [viewMode, setViewMode] = useState("grid");
 
   useEffect(() => {
     axios.get("http://localhost:3001/products")
@@ -28,61 +28,93 @@ function Products() {
         BMW Products
       </Typography>
 
-      <Grid container spacing={3} justifyContent="center">
+      <Box sx={{ mb: 3, display: "flex", gap: 2 }}>
+        <Button
+          variant={viewMode === "grid" ? "contained" : "outlined"}
+          onClick={() => setViewMode("grid")}
+        >
+          Grid View
+        </Button>
+
+        <Button
+          variant={viewMode === "list" ? "contained" : "outlined"}
+          onClick={() => setViewMode("list")}
+        >
+          List View
+        </Button>
+      </Box>
+
+      <Box
+        sx={{
+          display: "grid",
+          gridTemplateColumns: viewMode === "grid" ? "repeat(4, 1fr)" : "1fr",
+          gap: 3,
+        }}
+      >
         {products.map((product) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-            <Card
+          <Card
+            sx={{
+              height: viewMode === "grid" ? 430 : 180,
+              width: viewMode === "grid" ? "100%" : 900,
+              display: "flex",
+              flexDirection: viewMode === "grid" ? "column" : "row",
+              transition: "transform 0.3s",
+              "&:hover": { transform: "scale(1.03)" },
+            }}
+          >
+            <Box
               sx={{
-                height: "100%",
-                display: "flex",
-                flexDirection: "column",
-                transition: "transform 0.3s",
-                "&:hover": { transform: "scale(1.03)" }
+                display: viewMode === "list" ? "flex" : "block",
+                alignItems: "center",
+                justifyContent: "center",
+                width: viewMode === "list" ? 250 : "100%",
+                minWidth: viewMode === "list" ? 250 : undefined,
               }}
             >
               <CardMedia
                 component="img"
-                height="220"
+                sx={{
+                  objectFit: "cover",
+                  width: viewMode === "grid" ? "100%" : 180,
+                  height: viewMode === "grid" ? 220 : 180,
+                  borderRadius: 2,
+                }}
                 image={product.image}
                 alt={product.name}
-                sx={{ objectFit: "cover" }}
               />
+            </Box>
 
-              <CardContent
-                sx={{
-                  flexGrow: 1,
-                  display: "flex",
-                  flexDirection: "column",
-                }}
+            <CardContent
+              sx={{
+                flexGrow: 1,
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
+              <Typography variant="h6" fontWeight="bold" noWrap>
+                {product.name}
+              </Typography>
+
+              <Typography sx={{ mb: 1 }}>€{product.price}</Typography>
+
+              <Typography sx={{ flexGrow: 1 }}>
+                {product.description}
+              </Typography>
+
+              <Button
+                component={Link}
+                to={`/products/${product.id}`}
+                variant="contained"
+                fullWidth
+                size="large"
+                sx={{ mt: 2 }}
               >
-                <Typography variant="h6" fontWeight="bold">
-                  {product.name}
-                </Typography>
-
-                <Typography sx={{ mb: 1 }}>
-                  €{product.price}
-                </Typography>
-
-                <Typography sx={{ flexGrow: 1 }}>
-                  {product.description}
-                </Typography>
-
-                <Box sx={{ mt: 2 }}>
-                  <Button
-                    component={Link}
-                    to={`/products/${product.id}`}
-                    variant="contained"
-                    fullWidth
-                    size="large"
-                  >
-                    View Details
-                  </Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
+                View Details
+              </Button>
+            </CardContent>
+          </Card>
         ))}
-      </Grid>
+      </Box>
     </PageContainer>
   );
 }
